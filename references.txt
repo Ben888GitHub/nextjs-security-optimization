@@ -1,0 +1,9 @@
+CORS
+- https://vercel.com/support/articles/how-to-enable-cors
+- https://www.learnwithgurpreet.com/posts/cors-in-nextjs/
+
+
+NextJs Security Headers (CSP, etc...)
+- https://nextjs.org/docs/advanced-features/security-headers
+- https://dev.to/victorocna/quick-security-wins-for-your-next-js-app-3l23
+- https://blog.kieranroberts.dev/http-security-headers-and-how-to-set-them-in-nextjs
