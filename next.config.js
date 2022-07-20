@@ -1,7 +1,16 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
+const headers = require('./headers');
 
-module.exports = nextConfig
+const nextConfig = {
+	reactStrictMode: true,
+	swcMinify: true,
+	async headers() {
+		return [
+			{
+				source: '/(.*)',
+				headers
+			}
+		];
+	}
+};
+
+module.exports = nextConfig;
