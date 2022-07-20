@@ -1,8 +1,20 @@
 import Head from 'next/head';
-import Image from 'next/image';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
+	const [posts, setPosts] = useState([]);
+
+	const fetchPosts = async () => {
+		const { data } = await axios.get(`/api/posts`);
+		setPosts(data);
+	};
+
+	useEffect(() => {
+		fetchPosts();
+	}, []);
+
 	return (
 		<div className={styles.container}>
 			<Head>
@@ -11,22 +23,27 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<main className={styles.main}>
+			<main>
 				<h1>NextJs Security Optimization</h1>
+				<br />
+				<h1>This is the API called with CORS in API Routes</h1>
+				{posts?.map((post) => (
+					<div key={post.id}>
+						<h2>{post.title}</h2>
+						<p>{post.body}</p>
+					</div>
+				))}
 			</main>
-
-			<footer className={styles.footer}>
-				<a
-					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Powered by{' '}
-					<span className={styles.logo}>
-						<Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-					</span>
-				</a>
-			</footer>
 		</div>
 	);
 }
+
+// export const getStaticProps = async () => {
+// 	const { data } = await axios.get(
+// 		'https://jsonplaceholder.typicode.com/posts'
+// 	);
+// 	const subData = data.slice(0, 10);
+// 	return {
+// 		props: { subData }
+// 	};
+// };
