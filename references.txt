@@ -10,3 +10,10 @@ NextJs Security Headers (CSP, etc...)
 
 Captcha Basic Guide and CSP Settings
 - https://docs.hcaptcha.com/
+
+CSRF Protection
+- https://blog.logrocket.com/protecting-next-js-apps-csrf-attacks/ 
+- https://blog.logrocket.com/using-next-js-security-headers/
+- https://www.npmjs.com/package/next-csrf
+- https://www.youtube.com/watch?v=80S8h5hEwTY
+- https://www.youtube.com/watch?v=l3CC4mPGFmw
